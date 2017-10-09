@@ -13,6 +13,7 @@
     "node": ">= 7.6.0"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "standard": "standard --fix './src/**/*.js' './unitest/**/*.js' --parser babel-eslint",
     "mocha": "mocha --require babel-polyfill --compilers js:babel-register ./unitest/**/*.spec.js",
     "test": "npm run standard && npm run mocha",
@@ -32,6 +33,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
     "chai": "^3.5.0",
+    "lint-staged": "^4.2.3",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "sinon": "^1.17.7",
