@@ -12,6 +12,9 @@
   "engines": {
     "node": ">= 7.6.0"
   },
+  "bin": {
+    "bloke": "./bin/bloke"
+  },
   "scripts": {
     "precommit": "lint-staged",
     "standard": "standard --fix './src/**/*.js' './unitest/**/*.js' --parser babel-eslint",
@@ -21,9 +24,6 @@
     "coveralls": "nyc --reporter=text-lcov npm run test | coveralls",
     "release": "rimraf ./dist && babel ./src --out-dir ./dist",
     "start": "rimraf ./dist && babel ./src --out-dir ./dist --watch"
-  },
-  "bin": {
-    "bloke": "./bin/bloke"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
