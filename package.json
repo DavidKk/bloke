@@ -1,6 +1,6 @@
 {
   "name": "bloke",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "license": "MIT",
   "description": "Blog generator",
   "homepage": "https://github.com/DavidKk/bloke",
@@ -18,10 +18,12 @@
   "scripts": {
     "precommit": "lint-staged",
     "standard": "standard --fix './src/**/*.js' './unitest/**/*.js' --parser babel-eslint",
+    "yamllint": "yamllint .travis.yml && yamllint appveyor.yml",
+    "lint": "npm run yamllint && npm run standard",
     "mocha": "mocha --require babel-polyfill --compilers js:babel-register ./unitest/**/*.spec.js",
-    "test": "npm run standard && npm run mocha",
     "coverage": "rimraf ./coverage && nyc --reporter=text --reporter=lcov --report-dir=./coverage/cli npm run test && rimraf ./.temporary",
     "coveralls": "nyc --reporter=text-lcov npm run test | coveralls",
+    "test": "npm run lint && npm run mocha",
     "release": "rimraf ./dist && babel ./src --out-dir ./dist",
     "start": "rimraf ./dist && babel ./src --out-dir ./dist --watch"
   },
@@ -37,7 +39,8 @@
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "sinon": "^1.17.7",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "yaml-lint": "^1.0.0"
   },
   "dependencies": {
     "async": "^2.1.5",
